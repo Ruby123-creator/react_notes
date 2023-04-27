@@ -1,0 +1,283 @@
+1. What is React?
+React is a front-end and open-source JavaScript library which is useful in developing user interfaces specifically for applications with a single page. It is helpful in building complex and reusable user interface(UI) components of mobile and web applications as it follows the component-based approach.
+
+The important features of React are:
+
+It supports server-side rendering.
+It will make use of the virtual DOM rather than real DOM (Data Object Model) as RealDOM manipulations are expensive.
+It follows unidirectional data binding or data flow.
+It uses reusable or composable UI components for developing the view.
+
+
+React.js is a JavaScript library developed by engineers at Facebook. Here are just a few of the reasons why people choose to program with React:
+
+React is fast. Apps made in React can handle complex updates and still feel quick and responsive.
+React is modular. Instead of writing large, dense files of code, you can write many smaller, reusable files. React’s modularity can be a beautiful solution to JavaScript’s maintainability problems.
+React is scalable. Large programs that display a lot of changing data are where React performs best.
+React is flexible. You can use React for interesting projects that have nothing to do with making a web app. People are still figuring out React’s potential. There’s room to explore.
+React is popular. While this reason has admittedly little to do with React’s quality, the truth is that understanding React will make you more employable.
+
+What is JSX?
+JSX is a syntax extension for JavaScript. It was written to be used with React. JSX code looks a lot like HTML.
+
+What does “syntax extension” mean?
+
+In this case, it means that JSX is not valid JavaScript. Web browsers can’t read it!
+
+If a JavaScript file contains JSX code, then that file will have to be compiled. This means that before the file reaches a web browser, a JSX compiler will translate any JSX into regular JavaScript.
+JSX Elements And Their Surroundings
+JSX elements are treated as JavaScript expressions. They can go anywhere that JavaScript expressions can go. This means that a JSX element can be saved in a variable, passed to a function, stored in an object or array… you name it.
+
+Here’s an example of a JSX element being saved in a variable:
+
+const navBar = <nav>I am a nav bar</nav>;
+Here’s an example of several JSX elements being stored in an object:
+
+const myTeam = {
+  center: <li>Benzo Walli</li>,
+  powerForward: <li>Rasha Loa</li>,
+  smallForward: <li>Tayshaun Dasmoto</li>,
+  shootingGuard: <li>Colmar Cumberbatch</li>,
+  pointGuard: <li>Femi Billon</li>
+};
+
+
+The Virtual DOM
+One special thing about a React root’s render() method is that it only updates DOM elements that have changed.
+
+That means that if you render the exact same thing twice in a row, the second render will do nothing:
+const hello = <h1>Hello world</h1>;
+ 
+// This will add "Hello world" to the screen:
+root.render(hello, document.getElementById('app'));
+ 
+// This won't do anything at all:
+root.render(hello, document.getElementById('app'));
+This is significant! Only updating the necessary DOM elements is a large part of what makes React so successful. This is accomplished using React’s virtual DOM.
+
+React is a modular, scalable, flexible, and popular front-end framework.
+JSX is a syntax extension for JavaScript which allows us to treat HTML as expressions.
+They can be stored in variables, objects, arrays, and more!
+JSX elements can have attributes and be nested within each other, just like in HTML.
+JSX must have exactly one outer element, and other elements can be nested inside.
+createRoot() from react-dom/client can be used to create a React root at the specified DOM element.
+A React root’s render() method can be used to render JSX on the screen.
+A React root’s render() method only updates DOM elements that have changed using the virtual DOM.
+
+
+React works in declarative code:- declarative code describes what we want instead of saying how to do it, as you would with imperative code. At its core, declarative code is like visiting a restaurant and ordering a meal. You tell the waiter what you want, but you don’t go in the kitchen to tell the chef how to cook it. Declarative code describes the end result, but doesn’t act as a step-by-step guide of how to do it. In practice, that means declarative code is lightweight, easier to understand and change, and has less bugs.
+
+
+
+
+Components are reusable UIs which allow you to split the app into separate blocks that act independently of each other. Components accept an arbitrary input with data (a prop) and return a React element to declare what should appear on screen. They can interact with other components via props to create a complex UI.
+
+Our components are made of two main ingredients: state and props. These two ingredients mean we can organise our components in a hierarchical structure that ensures a one-way data flow (via props) so we only have one state.
+
+
+. JSX
+JavaScript XML or JSX is an extension to the JavaScript language syntax. JSX is a simple JavaScript that allows HTML quoting and uses these HTML tag syntax to render subcomponents. 
+
+
+State and props are both used to manage data in React, but they serve different purposes:
+
+Props are really a short form notation for properties and they are mainly used to transfer data between React components. A common use of props is to pass data from a parent component to a child component using props.
+the reason to limit data unidirectional, that is from parent to child component only.
+  -to improve performance, an easier time debugging applications and having more control over the data. 
+ -having more control over the data means that because the data flows only in a single direction, the data flow is much more predictable. 
+-This is great for the maintainability of the application as new developers will be able to understand the application much faster and easier down the line.
+-unidirectional data flow creates a single source of truth, meaning that all data relevant to the application is aggregated in a single location.
+
+Prop drilling is the process of passing down data or state through multiple layers of a component hierarchy. By the way, it refers to the practice of passing data from a parent component to its children and then from the children to their own children and so on, until the data reaches the desired component that needs it..
+
+
+State is a JavaScript object that stores component’s dynamic data and it enables a component to keep track of changes between renders. Because state is dynamic, it is reserved only for interactivity so you don’t use it for static React projects.
+State is managed within the component (similar to variables declared within a function). State in React Component is its own local state, which means the state cannot be accessed and modified outside the component and can only be used inside it, probably that will remind you of a function own local scope.
+          const [state ,    setstate] = usestate(initial value)--->inital value of your state
+                 |               | 
+name of your state which        function which is used to change 
+will update whenver setstate    the value of this state
+calls      
+
+setstate() schedules an update to a component state object. when state changes , the component responds by rendering
+
+1. useState returns the current state and a function to update it.
+2. But this function updates the value in an asynchronous way.
+3. That means by calling that function, the variable is not going to change immediately.
+
+
+
+setState() does not immediately mutate this.state but creates a pending state transition. Accessing this.state after calling this method can potentially return the existing value. There is no guarantee of synchronous operation of calls to setState and calls may be batched for performance gains.
+The “useState” set method is asynchronous; hence, the updates are not reflected immediately. However, this is not the reason for the change not getting reflected immediately in the method. Hence, all you need to do is to go for any of the methods which reflect the changes in the “useState” set method immediatelylike useEffect.
+
+VIRTUAL DOM
+DOM manipulation is the heart of the modern, interactive web. Unfortunately, it is also a lot slower than most JavaScript operations.
+
+This slowness is made worse by the fact that most JavaScript frameworks update the DOM much more than they have to.
+
+As an example, let’s say that you have a list that contains ten items. You check off the first item. Most JavaScript frameworks would rebuild the entire list. That’s ten times more work than necessary! Only one item changed, but the remaining nine get rebuilt exactly how they were before.
+
+Rebuilding a list is no big deal to a web browser, but modern websites can use huge amounts of DOM manipulation. Inefficient updating has become a serious problem.
+
+To address this problem, the people at React popularized something called the virtual DOM.
+
+In React, for every DOM object, there is a corresponding “virtual DOM object.” A virtual DOM object is a representation of a DOM object, like a lightweight copy.
+
+A virtual DOM object has the same properties as a real DOM object, but it lacks the real thing’s power to directly change what’s on the screen.
+
+Manipulating the DOM is slow. Manipulating the virtual DOM is much faster because nothing gets drawn onscreen. Think of manipulating the virtual DOM as editing a blueprint, as opposed to moving rooms in an actual house.
+
+How It Helps
+When you render a JSX element, every single virtual DOM object gets updated.
+
+This sounds incredibly inefficient, but the cost is insignificant because the virtual DOM can update so quickly.
+
+Once the virtual DOM has been updated, then React compares the virtual DOM with a virtual DOM snapshot that was taken right before the update.
+
+By comparing the new virtual DOM with a pre-update version, React figures out exactly which virtual DOM objects have changed. This process is called “diffing.”
+
+Once React knows which virtual DOM objects have changed, then React updates those objects, and only those objects, on the real DOM. In our example from earlier, React would be smart enough to rebuild your one checked-off list-item and leave the rest of your list alone.
+
+This makes a big difference! React can update only the necessary parts of the DOM. React’s reputation for performance comes largely from this innovation.
+
+In summary, here’s what happens when you try to update the DOM in React:
+
+The entire virtual DOM gets updated.
+The virtual DOM gets compared to what it looked like before you updated it. React figures out which objects have changed.
+The changed objects, and the changed objects only, get updated on the real DOM.
+Changes on the real DOM cause the screen to change.
+
+
+
+
+
+
+JSX Conditionals: If Statements That Do Work
+How can you write a conditional if you can’t inject an if statement into JSX?
+
+One option is to write an if statement and not inject it into JSX.
+
+Look at if.js. Follow the if statement, all the way from line 8 down to line 20.
+
+if.js works because the words if and else are not injected in between JSX tags. The if statement is on the outside, and no JavaScript injection is necessary.
+
+This is a common way to express conditionals in JSX.
+import React from 'react';
+import { createRoot } from 'react-dom/client';
+
+const container = document.getElementById('app');
+const root = createRoot(container);
+let message;
+
+if (user.age >= drinkingAge) {
+  message = (
+    <h1>
+      Hey, check out this alcoholic beverage!
+    </h1>
+  );
+} else {
+  message = (
+    <h1>
+      Hey, check out these earrings I got at Claire's!
+    </h1>
+  );
+}
+
+root.render(message);
+
+
+JSX Conditionals: The Ternary Operator
+There’s a more compact way to write conditionals in JSX: the ternary operator.
+
+The ternary operator works the same way in React as it does in regular JavaScript. However, it shows up in React surprisingly often.
+
+Recall how it works: you write x ? y : z, where x, y, and z are all JavaScript expressions. When your code is executed, x is evaluated as either “truthy” or “falsy”. If x is truthy, then the entire ternary operator returns y. If x is falsy, then the entire ternary operator returns z.
+
+Here’s how you might use the ternary operator in a JSX expression:
+
+const headline = (
+  <h1>
+    { age >= drinkingAge ? 'Buy Drink' : 'Do Teen Stuff' }
+  </h1>
+);
+In the above example, if age is greater than or equal to drinkingAge, then headline will equal <h1>Buy Drink</h1>. Otherwise, headline will equal <h1>Do Teen Stuff</h1>.
+
+
+
+JSX Conditionals: &&
+We’re going to cover one final way of writing conditionals in React: the && operator.
+
+Like the ternary operator, && is not React-specific, but it shows up in React very often.
+
+In the last two exercises, you wrote statements that would sometimes render a kitty and other times render a doggy. && would not have been the best choice for that code.
+
+&& works best for conditionals that will sometimes do an action but other times do nothing at all.
+
+Here’s an example:
+
+const tasty = (
+  <ul>
+    <li>Applesauce</li>
+    { !baby && <li>Pizza</li> }
+    { age > 15 && <li>Brussels Sprouts</li> }
+    { age > 20 && <li>Oysters</li> }
+    { age > 25 && <li>Grappa</li> }
+  </ul>
+);
+If the expression on the left of the && evaluates as true, then the JSX on the right of the && will be rendered. If the first expression is false, however, then the JSX to the right of the && will be ignored and not rendered.
+
+
+.map in JSX
+The .map() array method comes up often in React. It’s good to get in the habit of using it alongside JSX.
+
+If you want to create a list of JSX elements, then using .map() is often the most efficient way. It can look odd at first:
+
+const strings = ['Home', 'Shop', 'About Me'];
+ 
+const listItems = strings.map(string => <li>{string}</li>);
+ 
+<ul>{listItems}</ul>
+In the above example, we start out with an array of strings. We call .map() on this array of strings, and the .map() call returns a new array of <li>s.
+
+On the last line of the example, note that {listItems} will evaluate to an array, because it’s the returned value of .map()! JSX <li>s don’t have to be in an array like this, but they can be.
+
+// This is fine in JSX, not in an explicit array:
+<ul>
+  <li>item 1</li>
+  <li>item 2</li>
+  <li>item 3</li>
+</ul>
+ 
+// This is also fine!
+const liArray = [
+  <li>item 1</li>, 
+  <li>item 2</li>, 
+  <li>item 3</li>
+];
+ 
+<ul>{liArray}</ul>
+
+
+
+Keys
+When you make a list in JSX, sometimes your list will need to include something called keys:
+
+<ul>
+  <li key="li-01">Example1</li>
+  <li key="li-02">Example2</li>
+  <li key="li-03">Example3</li>
+</ul>
+A key is a JSX attribute. The attribute’s name is key. The attribute’s value should be something unique, similar to an id attribute.
+
+keys don’t do anything visible! React uses them internally to keep track of lists. If you don’t use keys when you’re supposed to, React might accidentally scramble your list items into the wrong order.
+
+Not all lists need to have keys. A list needs keys if either of the following is true:
+
+The list items have memory from one render to the next. For instance, when a to-do list renders, each item must “remember” whether it was checked off. The items shouldn’t get amnesia when they render.
+A list’s order might be shuffled. For instance, a list of search results might be shuffled from one render to the next.
+If neither of these conditions is true, then you don’t have to worry about keys. If you aren’t sure, then it never hurts to use them!
+
+
+
+
+
